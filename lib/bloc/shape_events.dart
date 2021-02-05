@@ -6,11 +6,9 @@ abstract class ShapeEvent extends Equatable {
 }
 
 class ShapeChangeRequested extends ShapeEvent {
-  final int quantity;
-  final List imageList;
-  ShapeChangeRequested({@required this.quantity, this.imageList})
-      : assert(quantity != null);
+  final List newOrder;
+  ShapeChangeRequested({@required this.newOrder}) : assert(newOrder != null);
 
   @override
-  List<Object> get props => [quantity, imageList];
+  List<Object> get props => [newOrder];
 }

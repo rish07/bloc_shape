@@ -10,15 +10,24 @@ class ShapeBloc extends Bloc<ShapeEvent, ShapeState> {
     if (event is ShapeChangeRequested) {
       yield ShapeLoadingState();
       //TODO change list
-      List<Object> rotate(List<Object> list, int v) {
-        if (list == null || list.isEmpty) return list;
-        var i = v % list.length;
-        return list.sublist(i)..addAll(list.sublist(0, i));
-      }
 
       try {
         print('this');
-        List imageList = rotate(event.imageList, event.quantity);
+        List imageList = [];
+        event.newOrder.forEach((element) {
+          if (element == 'tri') {
+            imageList.add(
+              "https://www.kidsmathgamesonline.com/images/pictures/shapes/triangle.jpg",
+            );
+          } else if (element == "cir") {
+            imageList.add(
+              "https://dp57v9mrmcue2.cloudfront.net/wp-content/uploads/2019/08/IMG_6679-492x512.jpeg",
+            );
+          } else if (element == 'sq') {
+            imageList.add(
+                'https://www.kidsmathgamesonline.com/images/pictures/shapes/square.jpg');
+          }
+        });
         print(imageList);
         yield ShapeLoadedState(imageList: imageList);
       } catch (_) {
