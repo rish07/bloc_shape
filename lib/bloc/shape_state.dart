@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -14,12 +12,12 @@ class ShapeInitialState extends ShapeState {}
 class ShapeLoadingState extends ShapeState {}
 
 class ShapeLoadedState extends ShapeState {
-  final File image;
+  final List imageList;
 
-  ShapeLoadedState({@required this.image}) : assert(image != null);
+  ShapeLoadedState({@required this.imageList}) : assert(imageList != null);
 
   @override
-  List<Object> get props => [image];
+  List<Object> get props => [imageList];
 }
 
 class ShapeLoadFailure extends ShapeState {}
